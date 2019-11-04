@@ -1,18 +1,35 @@
 import React, { useState } from 'react';
+import{ connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { addLog } from '../../redux/logs/log-actions';
+import TechSelectOptions from '../techs/tech-select-options';
+
 import M from "materialize-css";
 import 'materialize-css/dist/js/materialize.min.js';
 
-const AddLogModal = () => {
+const AddLogModal = ({addLog}) => {
 	const [message, setMessage] = useState('');
 	const [attention, setAttention] = useState(false);
-	const [technican, setTechnican] = useState('');
+	const [technician, setTechnician] = useState('');
 
 	const onSubmit = () => {
-		if(message === '' || technican === ''){
-			M.toast({html: ' Please enter a message and select technican'});
+		if(message === '' || technician === ''){
+			M.toast({html: ' Please enter a message and select technician'});
 		}else{
+
+			const newLog ={
+				message,
+				attention,
+				technician,
+				date: new Date()
+			}
+			addLog(newLog);
+
+			M.toast({html: `Log added by ${technician}`});
+
+			
 			setMessage('');
-			setTechnican('');
+			setTechnician('');
 			setAttention(false);
 		}
 	}
@@ -33,13 +50,11 @@ const AddLogModal = () => {
 
 				<div className='row'>
 					<div className='input-field'>
-						<select name='technican' value={technican} className='browser-default' onChange={e => setTechnican(e.target.value)}>
+						<select name='technician' value={technician} className='browser-default' onChange={e => setTechnician(e.target.value)}>
 							<option value=''>
-							--Select Technican--
+							--Select Technician--
 							</option>
-							<option>Jon Sith</option>
-							<option>Ton Smith</option>
-							<option>Pon Mith</option>
+							<TechSelectOptions />
 						</select>
 					</div>
 				</div>
@@ -61,7 +76,11 @@ const AddLogModal = () => {
 		</div>
 	)
 
+};
+
+AddLogModal.propTypes = {
+	addLog: PropTypes.func.isRequired
 }
 
 
-export default AddLogModal;
+export default connect(null, {addLog})(AddLogModal);

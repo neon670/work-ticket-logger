@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { addTechnician } from '../../redux/technicians/tech-actions';
+
+
+
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const AddTechModal = () => {
+const AddTechModal = ({ addTechnician }) => {
 	const [firstName, setfirstName] = useState('');
 	const [lastName, setlastName] = useState('');
 	
@@ -10,6 +16,13 @@ const AddTechModal = () => {
 		if(firstName === '' || lastName === ''){
 			M.toast({html: ' Please enter a name for the technician '});
 		}else{
+			addTechnician({
+				firstName,
+				lastName
+			});
+			M.toast({html:  `New technician added ${firstName} ${lastName}` });
+
+
 			setfirstName('');
 			setlastName('');
 		}
@@ -31,7 +44,7 @@ const AddTechModal = () => {
 				<div className='row'>
 					<div className='input-field'>
 						<input type= 'text' name= 'lastName' value = {lastName} onChange={e => setlastName(e.target.value)} />
-						<label hmtlFor='lastName' className='active'>
+						<label hmtlfor='lastName' className='active'>
 							First Name
 						</label>
 					</div>
@@ -39,12 +52,16 @@ const AddTechModal = () => {
 				
 			</div>
 			<div className='modal-footer'>
-				<a href='#' onClick={onSubmit} className='modal-close btn waves-effect blue'>Enter</a>
+				<a href='!#' onClick={onSubmit} className='modal-close waves-effect blue waves-light btn'>Enter</a>
 			</div> 
 		</div>
 	)
 
 }
 
+AddTechModal.propTypes = {
+	addTechnician: PropTypes.func.isRequired
+}
 
-export default AddTechModal;
+
+export default connect(null,{ addTechnician })(AddTechModal);

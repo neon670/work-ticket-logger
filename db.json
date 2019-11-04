@@ -1,44 +1,40 @@
 {
-	"logs": [
-		{
-    "id": 1,
-    "message": "id labore ex et quam laborum",
-    "attention": "false",
-    "technican": "John Doe",
-    "date": "10-10-2019"
-  },
-  {
-    "id": 2,
-    "message": "quo vero reiciendis velit similique earum",
-    "attention": "true",
-    "technican": "Doe John",
-    "date": "10-10-2019"
-  },
-  {
-    "id": 3,
-    "message": "odio adipisci rerum aut animi",
-    "attention": "true",
-    "technican": "John Doe",
-    "date": "10-10-2019"
-  },
-  {
-    "id": 4,
-    "message": "alias odio sit",
-    "attention": "false",
-    "technican": "Doe John",
-    "date": "10-10-2019"
-  }
-	],
-	"technicans":[
-		{
-		"id": 1,
-		"first_name": "John",
-		"last_name": "Doe"
-		},
-		{
-		"id": 2,
-		"first_name": "Doe",
-		"last_name": "John"
-		}
-	]
+  "logs": [
+    {
+      "message": "Need to fix submit form on contact us page",
+      "attention": "false",
+      "technician": "Jon Sith",
+      "date": "2019-11-04T09:22:27.452Z",
+      "id": 1
+    },
+    {
+      "message": "realign contact form",
+      "attention": "false",
+      "technician": "Pon Mith",
+      "date": "2019-11-04T09:23:13.968Z",
+      "id": 2
+    }
+  ],
+  "technicians": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    {
+      "id": 2,
+      "firstName": "Doe",
+      "lastName": "John"
+    },
+    {
+      "firstName": "New ",
+      "lastName": "Employee",
+      "id": 3
+    },
+    {
+      "firstName": "Whitney",
+      "lastName": "Jones",
+      "id": 4
+    }
+  ]
 }
