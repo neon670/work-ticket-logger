@@ -1,0 +1,44 @@
+{
+	"logs": [
+		{
+    "id": 1,
+    "message": "id labore ex et quam laborum",
+    "attention": "false",
+    "technican": "John Doe",
+    "date": "10-10-2019"
+  },
+  {
+    "id": 2,
+    "message": "quo vero reiciendis velit similique earum",
+    "attention": "true",
+    "technican": "Doe John",
+    "date": "10-10-2019"
+  },
+  {
+    "id": 3,
+    "message": "odio adipisci rerum aut animi",
+    "attention": "true",
+    "technican": "John Doe",
+    "date": "10-10-2019"
+  },
+  {
+    "id": 4,
+    "message": "alias odio sit",
+    "attention": "false",
+    "technican": "Doe John",
+    "date": "10-10-2019"
+  }
+	],
+	"technicans":[
+		{
+		"id": 1,
+		"first_name": "John",
+		"last_name": "Doe"
+		},
+		{
+		"id": 2,
+		"first_name": "Doe",
+		"last_name": "John"
+		}
+	]
+}
